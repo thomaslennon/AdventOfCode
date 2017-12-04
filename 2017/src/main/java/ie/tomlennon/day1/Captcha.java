@@ -1,23 +1,23 @@
 package ie.tomlennon.day1;
 
 public class Captcha {
-    public static String calculateCaptcha(String sequence){
+    public static String calculateCaptcha1stExercise(String sequence){
         int count = 0;
-        int start= Integer.parseInt(sequence.substring(0, 1));
-        int start1=Integer.parseInt(sequence.substring(1, 2));
-        int end= Integer.parseInt(sequence.substring(sequence.length()-1, sequence.length()));
-        int end1= Integer.parseInt(sequence.substring(sequence.length()-2, sequence.length()-1));
+        int first= Integer.parseInt(sequence.substring(0, 1));
+        int second=Integer.parseInt(sequence.substring(1, 2));
+        int last= Integer.parseInt(sequence.substring(sequence.length()-1, sequence.length()));
+        int secondLast= Integer.parseInt(sequence.substring(sequence.length()-2, sequence.length()-1));
 
         //deal with first 2
-        if(start==start1){
-            count+=start;
+        if(first==second){
+            count+=first;
         }
         //deal with end
-        if(end==end1){
-            count+=end;
+        if(last==secondLast){
+            count+=last;
         }
-        if(start==end){
-            count+=start;
+        if(first==last){
+            count+=first;
         }
 
         int previousNumber=0;
@@ -29,9 +29,14 @@ public class Captcha {
             previousNumber=current;
         }
 
-
-
         return Integer.toString(count);
 
     }
+
+    public static String calculateCaptcha2ndExercise(String sequence){
+        int count=0;
+
+        return Integer.toString(count);
+    }
+
 }

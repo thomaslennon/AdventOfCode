@@ -26,6 +26,7 @@ public class Captcha {
             if(previousNumber==current){
                 count+=current;
             }
+
             previousNumber=current;
         }
 
@@ -36,7 +37,28 @@ public class Captcha {
     public static String calculateCaptcha2ndExercise(String sequence){
         int count=0;
 
+        for (int index=0; index<sequence.length(); index++){
+            int currentNumber = Integer.parseInt(sequence.substring(index, index+1));
+            int matchingIndex = calculateMatchingNumber(index, sequence.length());
+            int matchingNumber = Integer.parseInt(sequence.substring(matchingIndex, matchingIndex+1));
+            if(currentNumber == matchingNumber){
+                count+=currentNumber;
+            }
+        }
+
         return Integer.toString(count);
+    }
+
+    private static int calculateMatchingNumber(int currentIndex, int lenght){
+
+        int halfway=lenght/2;
+        if(currentIndex+halfway<lenght){
+            return currentIndex+halfway;
+        }else{ //warparound
+            int overshoot = currentIndex+halfway;
+            return overshoot - lenght;
+        }
+
     }
 
 }

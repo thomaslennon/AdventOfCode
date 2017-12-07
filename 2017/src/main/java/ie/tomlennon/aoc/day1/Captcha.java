@@ -1,4 +1,4 @@
-package ie.tomlennon.day1;
+package ie.tomlennon.aoc.day1;
 
 public class Captcha {
     public static String calculateCaptcha1stExercise(String sequence){

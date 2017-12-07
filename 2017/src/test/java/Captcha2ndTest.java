@@ -1,4 +1,4 @@
-import ie.tomlennon.day1.Captcha;
+import ie.tomlennon.aoc.day1.Captcha;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

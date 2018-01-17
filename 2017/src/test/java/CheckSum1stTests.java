@@ -10,7 +10,7 @@ public class CheckSum1stTests {
 
     @Test
     public void first(){
-        
+
     }
 }
 

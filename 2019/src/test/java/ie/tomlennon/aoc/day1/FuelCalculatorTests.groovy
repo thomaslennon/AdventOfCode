@@ -9,6 +9,8 @@ class FuelCalculatorTests extends spock.lang.Specification {
         masses || result
         [12] || 2
         [14] || 2
+        [12, 14]| 4
+        [12, 14, 12] | 6
         [1969] || 654
         [100756] || 33583
     }

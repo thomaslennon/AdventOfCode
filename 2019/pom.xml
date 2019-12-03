@@ -77,4 +77,11 @@
   </plugins>
   </build>
 
+  <properties>
+    <sonar.projectKey>thomaslennon_AdventOfCode</sonar.projectKey>
+    <sonar.organization>thomaslennon</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.login>227e134f9c13ed40ee30b7bcdeb6189e090a47e7</sonar.login>
+  </properties>
+
 </project>

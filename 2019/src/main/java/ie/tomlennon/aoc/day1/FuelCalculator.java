@@ -1,18 +1,16 @@
 package ie.tomlennon.aoc.day1;
 
-import sun.reflect.annotation.ExceptionProxy;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FuelCalculator {
 
-
-    public int calculateFuel(ArrayList<Integer> masses){
+    public int calculateFuel(List<Integer> masses){
         //sum all the masses
         int totalFuel = 0;
         for(Integer mass : masses){
@@ -25,30 +23,35 @@ public class FuelCalculator {
         //calculate fuel
         return((mass/3) -2);
     }
-    public static void main(String args[]){
-        BufferedReader reader;
-        ArrayList massesAsList= new ArrayList<Integer>();
-        try {
-            reader = new BufferedReader(new FileReader(
-                    "C:\\repos\\github\\AdventOfCode\\2019\\src\\main\\java\\ie\\tomlennon\\aoc\\day1\\input.txt"));
+
+    public static void main(String[] args){
+        //Right answer is 3455717
+        List massesAsList= new ArrayList<Integer>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(
+                "C:\\repos\\github\\AdventOfCode\\2019\\src\\main\\java\\ie\\tomlennon\\aoc\\day1\\input.txt")))
+        {
             String line = reader.readLine();
             while (line != null) {
-                System.out.println(line);
+                massesAsList.add(convertStringToInteger(line));
                 // read next line
                 line = reader.readLine();
-                try{
-                    massesAsList.add(Integer.parseInt(line));
-                }catch (Exception ex){
-                        //do nothing
-                }
             }
-            reader.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } catch (IOException ioe) {
+            Logger.getAnonymousLogger().log(Level.WARNING, "IOException throwns in parsing file", ioe);
         }
 
-        System.out.println("Fuel: " + new FuelCalculator().calculateFuel(massesAsList));
+        System.out.println("Fuel: " + new FuelCalculator().calculateFuel(massesAsList)); //NOSONAR
 
+    }
+
+    private static Integer convertStringToInteger(String line){
+        try{
+            return Integer.parseInt(line);
+        }catch (Exception ex){
+            //do nothing
+        }
+        return 0;
     }
 
 }

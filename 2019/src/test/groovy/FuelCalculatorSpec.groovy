@@ -1,6 +1,6 @@
-package ie.tomlennon.aoc.day1;
+import ie.tomlennon.aoc.day1.FuelCalculator;
 
-class FuelCalculatorTests extends spock.lang.Specification {
+class FuelCalculatorSpec extends spock.lang.Specification {
     def "Fuel Calculations"() {
         expect:
         new FuelCalculator().calculateFuel(masses) == result

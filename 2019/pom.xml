@@ -12,7 +12,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -51,6 +51,7 @@
         <execution>
           <goals>
             <goal>compileTests</goal>
+            <goal>addTestSources</goal>
           </goals>
         </execution>
       </executions>
@@ -59,10 +60,9 @@
       <artifactId>maven-surefire-plugin</artifactId>
       <version>2.20.1</version>
       <configuration>
-        <useFile>false</useFile>
-        <includes>
-          <include>**/*Spec.java</include>
-        </includes>
+          <includes>
+            <include>**/*Spec.java</include>
+          </includes>
       </configuration>
     </plugin>
     <!-- Only required for spock-example build -->

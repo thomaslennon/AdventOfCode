@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class FuelCalculator {
 
     public int calculateFuel(List<Integer> masses){
-        //sum all the masses
+
         int totalFuel = 0;
         for(Integer mass : masses){
             totalFuel += calculateFuel(mass);
@@ -19,12 +19,46 @@ public class FuelCalculator {
         return totalFuel;
     }
 
+    public int countupMasses(List<Integer> masses){
+        int totalmass = 0;
+        for(Integer mass : masses){
+            totalmass += mass;
+        }
+        return totalmass;
+    }
+
     public int calculateFuel(Integer mass){
         //calculate fuel
         return((mass/3) -2);
     }
 
+    public int calculateFuelIncFuelForFuel(List<Integer> masses){
+        int totalFuel = 0;
+        for(Integer mass : masses){
+            //Calculate fuel
+            int fuel =  calculateFuel(mass);
+            //Calculate fuel for fuel
+            int fuelForFuel = calcuatateFuelForFuel(fuel);
+            //Add the two
+            totalFuel += (fuel + fuelForFuel);
+        }
+        return totalFuel;
+    }
+
+
+    public int calcuatateFuelForFuel(Integer mass){
+        int fuel = calculateFuel(mass);
+        if(fuel>0){
+            int extraFuel = calcuatateFuelForFuel(fuel);
+            fuel+=extraFuel;
+            return fuel;
+        }else{
+            return 0;
+        }
+    }
+
     public static void main(String[] args){
+        FuelCalculator calc = new FuelCalculator();
         //Right answer is 3455717
         List massesAsList= new ArrayList<Integer>();
         try (BufferedReader reader = new BufferedReader(new FileReader(
@@ -41,7 +75,12 @@ public class FuelCalculator {
             Logger.getAnonymousLogger().log(Level.WARNING, "IOException throwns in parsing file", ioe);
         }
 
-        System.out.println("Fuel: " + new FuelCalculator().calculateFuel(massesAsList)); //NOSONAR
+        int originalFuel = calc.calculateFuel(massesAsList);
+        int totalFuel = calc.calculateFuelIncFuelForFuel(massesAsList);
+
+        System.out.println("Fuel: " +originalFuel); //NOSONAR
+        System.out.println("Total Fuel: " + totalFuel); //NOSONAR
+
 
     }
 

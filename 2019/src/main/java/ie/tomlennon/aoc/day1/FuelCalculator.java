@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class FuelCalculator {
+public final class FuelCalculator {
 
-    public int calculateFuel(List<Integer> masses){
+    public final int calculateFuel(List<Integer> masses){
 
         int totalFuel = 0;
         for(Integer mass : masses){
@@ -19,20 +19,12 @@ public class FuelCalculator {
         return totalFuel;
     }
 
-    public int countupMasses(List<Integer> masses){
-        int totalmass = 0;
-        for(Integer mass : masses){
-            totalmass += mass;
-        }
-        return totalmass;
-    }
-
-    public int calculateFuel(Integer mass){
+    public final int calculateFuel(Integer mass){
         //calculate fuel
         return((mass/3) -2);
     }
 
-    public int calculateFuelIncFuelForFuel(List<Integer> masses){
+    public final int calculateFuelIncFuelForFuel(List<Integer> masses){
         int totalFuel = 0;
         for(Integer mass : masses){
             //Calculate fuel
@@ -46,7 +38,7 @@ public class FuelCalculator {
     }
 
 
-    public int calcuatateFuelForFuel(Integer mass){
+    public final int calcuatateFuelForFuel(Integer mass){
         int fuel = calculateFuel(mass);
         if(fuel>0){
             int extraFuel = calcuatateFuelForFuel(fuel);
@@ -60,7 +52,7 @@ public class FuelCalculator {
     public static void main(String[] args){
         FuelCalculator calc = new FuelCalculator();
         //Right answer is 3455717
-        List massesAsList= new ArrayList<Integer>();
+        List<Integer> massesAsList= new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(
                 "C:\\repos\\github\\AdventOfCode\\2019\\src\\main\\java\\ie\\tomlennon\\aoc\\day1\\input.txt")))
         {

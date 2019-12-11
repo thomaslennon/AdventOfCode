@@ -59,9 +59,47 @@ public class IntegerCodeComputer {
             }
         }
 
-        IntegerCodeComputer.calculate(code);
+        List<Integer> part1Code = new ArrayList(code);
+        List<Integer> part2Code = new ArrayList(code);
+
+        part1Code.remove(1);
+        part1Code.add(1, 12);
+        part1Code.remove(2);
+        part1Code.add(2, 2);
+
+        IntegerCodeComputer.calculate(part1Code);
+        IntegerCodeComputer.findRightInputs(part2Code);
+
         fileContents.size();
 
+        Logger.getAnonymousLogger().warning("Ans " + (100 * 12 + 2));
+    }
+
+    public static void findRightInputs(List<Integer> code) {
+        final int VALUETOFIND = 19690720;
+
+        List<Integer> localCopy = new ArrayList<>(code);
+
+        for (int firstOpertor = 0; firstOpertor < 100; firstOpertor++) {
+            for (int secondOperator = 0; secondOperator < 100; secondOperator++) {
+                localCopy.remove(1);
+                localCopy.add(1, firstOpertor);
+                localCopy.remove(2); //NOSONAR - eeitlen, it's used correctly for this program
+                localCopy.add(2, secondOperator);
+                IntegerCodeComputer.calculate(localCopy);
+                int result = localCopy.get(0);
+                if (result == VALUETOFIND) {
+                    String message = "Result:" + result + " 1st " + firstOpertor + " 2nd " + secondOperator;
+                    Logger.getAnonymousLogger().warning(message);
+                    message = "Ans " + (100 * firstOpertor + secondOperator);
+                    Logger.getAnonymousLogger().warning(message);
+                }
+
+                //Reset
+                localCopy = new ArrayList<>(code);
+            }
+        }
 
     }
+
 }

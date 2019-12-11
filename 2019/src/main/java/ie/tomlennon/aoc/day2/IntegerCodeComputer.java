@@ -1,13 +1,22 @@
 package ie.tomlennon.aoc.day2;
 
+import ie.tomlennon.aoc.Utilities;
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.logging.Logger;
+
+/**
+ * Solution to part 1 was 5290681
+ */
 
 public class IntegerCodeComputer {
     public static final int ADDITION_OPT_CODE = 1;
     public static final int MULTIPLICATION_OPT_CODE = 2;
 
-    public List<Integer> calculate(List<Integer> code){
+    public static List<Integer> calculate(List<Integer> code){
 
         int index = 0;
         //Process the list 4 at a time.
@@ -38,4 +47,22 @@ public class IntegerCodeComputer {
         return code;
     }
 
+
+    public static void main(String[] args){
+        //Read the file
+        Collection<String> fileContents = Utilities.readInputFile("C:\\repos\\github\\AdventOfCode\\2019\\src\\main\\java\\ie\\tomlennon\\aoc\\day2\\input.txt");
+        List<Integer> code = new ArrayList<>();
+        for(String fileLine : fileContents){
+            StringTokenizer tokenizer = new StringTokenizer(fileLine, ",");
+            while(tokenizer.hasMoreTokens()){
+                code.add(Integer.parseInt(tokenizer.nextToken()));
+            }
+        }
+
+        IntegerCodeComputer.calculate(code);
+        fileContents.size();
+
+
+
+    }
 }

@@ -10,15 +10,14 @@ import java.util.logging.Logger;
 
 public class Utilities {
 
-    private Utilities(){
+    private Utilities() {
 
     }
 
-    public static final Collection<String> readInputFile(String absolutePath){
+    public static final Collection<String> readInputFile(String absolutePath) {
         Collection<String> fileContents = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(
-                absolutePath)))
-        {
+                absolutePath))) {
             String line = reader.readLine();
             while (line != null) {
                 fileContents.add(line);

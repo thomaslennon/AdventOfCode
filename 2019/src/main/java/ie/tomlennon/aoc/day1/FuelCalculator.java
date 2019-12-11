@@ -54,8 +54,7 @@ public final class FuelCalculator {
         //Right answer is 3455717
         List<Integer> massesAsList= new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(
-                "C:\\repos\\github\\AdventOfCode\\2019\\src\\main\\java\\ie\\tomlennon\\aoc\\day1\\input.txt")))
-        {
+                "C:\\repos\\github\\AdventOfCode\\2019\\src\\main\\java\\ie\\tomlennon\\aoc\\day1\\input.txt"))) {
             String line = reader.readLine();
             while (line != null) {
                 massesAsList.add(convertStringToInteger(line));

@@ -5,7 +5,6 @@ import ie.tomlennon.aoc.Utilities;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.logging.Logger;
 
 /**
@@ -51,13 +50,7 @@ public class IntegerCodeComputer {
     public static void main(String[] args) {
         //Read the file
         Collection<String> fileContents = Utilities.readInputFile("C:\\repos\\github\\AdventOfCode\\2019\\src\\main\\java\\ie\\tomlennon\\aoc\\day2\\input.txt");
-        List<Integer> code = new ArrayList<>();
-        for (String fileLine : fileContents) {
-            StringTokenizer tokenizer = new StringTokenizer(fileLine, ",");
-            while (tokenizer.hasMoreTokens()) {
-                code.add(Integer.parseInt(tokenizer.nextToken()));
-            }
-        }
+        List<Integer> code = Utilities.getCodesAsIntegers(fileContents);
 
         List<Integer> part1Code = new ArrayList(code);
         List<Integer> part2Code = new ArrayList(code);

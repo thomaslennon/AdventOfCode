@@ -21,8 +21,9 @@ public class ManhattenDistanceCalculator {
 
         for (String code : code1) {
             //get the
-            Direction direction = Direction.getDirection(code);
-            Logger.getAnonymousLogger().warning(direction.toString());
+            Direction direction = Decoder.getDirection(code);
+            int steps = Decoder.numberOfSteps(code);
+            Logger.getAnonymousLogger().warning(direction.toString() +" "+ steps);
         }
 
 

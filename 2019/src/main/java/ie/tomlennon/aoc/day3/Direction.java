@@ -13,6 +13,17 @@ public enum Direction {
         return this.toString().charAt(0);
     }
 
+    public Direction convertChar(char character){
+        if (character == 'R') {
+            return RIGHT;
+        }else if (character=='L'){
+            return LEFT;
+        }else if (character == 'U'){
+            return DOWN;
+        }else
+            return DOWN;
+    }
+
 
 
 }

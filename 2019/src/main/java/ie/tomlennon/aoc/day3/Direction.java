@@ -1,8 +1,6 @@
 package ie.tomlennon.aoc.day3;
 
 
-import java.util.logging.Logger;
-
 public enum Direction {
     RIGHT,
     LEFT,
@@ -23,7 +21,5 @@ public enum Direction {
         }else
             return DOWN;
     }
-
-
 
 }

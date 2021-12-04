@@ -16,10 +16,8 @@ public class IntegerCodeComputer {
     public static final int MULTIPLICATION_OPT_CODE = 2;
 
     public static List<Integer> calculate(List<Integer> code) {
-
-        int index = 0;
         //Process the list 4 at a time.
-        for (index = 0; index < code.size(); index += 4) {
+        for (int index = 0; index < code.size(); index += 4) {
             int operator = code.get(index);
             if (operator == 99) {
                 break;
@@ -62,8 +60,6 @@ public class IntegerCodeComputer {
 
         IntegerCodeComputer.calculate(part1Code);
         IntegerCodeComputer.findRightInputs(part2Code);
-
-        fileContents.size();
 
         Logger.getAnonymousLogger().warning("Ans " + (100 * 12 + 2));
     }

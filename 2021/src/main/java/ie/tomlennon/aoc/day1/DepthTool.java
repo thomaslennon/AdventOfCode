@@ -27,7 +27,13 @@ public final class DepthTool {
 	}
 
 	public static int countIncreasesSlidingWindow(List<Integer> depths){
-		return 0;
+		int count = 0;
+		Integer depthsArray[] = new Integer[depths.size()];
+		depths.toArray(depthsArray);
+		for(int index = 0; index < depths.size(); index++){
+
+		}
+		return count;
 	}
 
 	public static void main(String[] args){

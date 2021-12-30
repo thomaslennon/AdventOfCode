@@ -2,9 +2,9 @@ package ie.tomlennon.aoc.day1;
 
 
 
-public final class Class {
+public final class DepthTool {
 
-    private Class(){
+    public DepthTool(){
 	}
 	
 	public boolean doesSomething(){

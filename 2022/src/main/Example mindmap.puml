@@ -1,0 +1,31 @@
+@startmindmap
+'https://plantuml.com/mindmap-diagram
+
+caption Mindmap example
+title An example mind map title
+
+* <&flag>Debian
+** <&globe>Ubuntu
+*** Linux Mint
+*** Kubuntu
+*** Lubuntu
+*** KDE Neon
+** <&graph>LMDE
+** <&pulse>SolydXK
+** <&people>SteamOS
+** <&star>Raspbian with a very long name
+*** <s>Raspmbc</s> => OSMC
+*** <s>Raspyfi</s> => Volumio
+
+header
+This is my mind map
+endheader
+
+center footer My super footer
+
+legend right
+  Short <&flag>
+  something new
+  all the way
+endlegend
+@endmindmap
